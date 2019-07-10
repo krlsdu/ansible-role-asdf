@@ -63,6 +63,9 @@ Playbook example is given below:
 ```yaml
 - hosts: web
   roles:
+  vars:
+    asdf_user: "{{ lookup('env', 'USER') }}"
+    asdf_user_home: "{{ lookup('env', 'HOME') }}"
   - role: ansible-role-asdf
     asdf_plugins:
     - name: "erlang"
@@ -80,7 +83,8 @@ A more complex example for CentOS is:
   become: true
   vars:
     asdf_version: v0.6.2
-    asdf_user: ci
+    asdf_user: "{{ lookup('env', 'USER') }}"
+    asdf_user_home: "{{ lookup('env', 'HOME') }}"
     asdf_plugins:
       - name: erlang
       - name: elixir

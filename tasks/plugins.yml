@@ -72,11 +72,3 @@
   with_items: "{{ asdf_plugins }}"
   become: True
   become_user: "{{ asdf_user }}"
-
-# - name: "set asdfrc"
-#   template:
-#     src: "asdfrc.j2"
-#     dest: "{{ asdf_user_home }}/.asdfrc"
-#     owner: "{{ asdf_user }}"
-#   become: True
-#   become_user: "{{ asdf_user }}"
